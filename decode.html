@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>endcoder</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient( to top ,hsl(120, 81%, 28%) ,hsl(0, 0%, 0%));
+        }
+        .container{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            background-color: antiquewhite;
+            width: 80%;
+            border-radius: 1cm;
+            background-color: hsl(0, 0%, 25%);
+            height: 50%;
+        }
+        label{
+            font-size: 2rem;
+            color: white;
+        }
+        button{
+            font-size: 1.5rem;
+            padding: 10px;
+            background-color: black;
+            color:white;
+            border:none;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        input{
+            padding:10px;
+            width: 80%;
+            border-radius: 10px;
+            border:none;
+        }
+        h3{
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="inputMessage">Decode:</label>
+        <input type="text" placeholder="enter a message to decode" id="message">
+        <button onclick="decode()">Submit</button>
+        <h3 id="decodedMsg">Your decoded message:</h3>
+        <button><a href="encode.html" style="color:white ;text-decoration: none;">Encode</a></button>
+    </div>
+    <script>
+        function decode(){
+            const message=document.getElementById('message').value;
+            const decodedisplay=document.getElementById('decodedMsg');
+            const chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!@#$%^&*()-_=+[{]}\\|;:\'",<.>/? ';
+            const randonChars='J$e{o"mkUldoO_3vFtH5XZN}Yg2MaRAW0I)Gy+rqBKEqT`^nVuzCxP@ibnhwsf%S!(jD,1879c#Ltp&Q[.=<]/|>*: ';
+            let result='';
+            for( let i=0;i<message.length;i++){
+                let char=message[i];
+                let charIndex=randonChars.indexOf(char)
+                if (charIndex === -1) {
+                    result += char; 
+                } else {
+                    result += chars[charIndex];
+                }
+            }
+            decodedisplay.textContent=`Your decoded message: ${result}`;
+        }
+    </script>
+</body>
+</html>
