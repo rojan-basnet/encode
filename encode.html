@@ -67,16 +67,16 @@
         const copy=document.getElementById('copy');
 
         function encode(){
-            const message=document.getElementById('message').value;
+            const message=document.getElementById('message');
             const encodedisplay=document.getElementById('encodedMsg');
             const chars='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789`~!#$%^&*()-_=+[{]}\\|;:\'",<.>/?@';
             const randonChars='!m)0Y_"De]@=OSsnlzHjp6[xoU'+'tv7h?/X8ya^g|~.(&+PkQ$I5d-%1Rri3WL9N*`u E;T4}#bqMcAF<K,2BZC{\:JVf>Gw  ';
             let result='';
 
 
-            for( let i=0;i<message.length;i++){
+            for( let i=0;i<message.value.length;i++){
 
-            let char=message[i];
+            let char=message.value[i];
             let charIndex=chars.indexOf(char);
             
                 if (charIndex === -1) {
