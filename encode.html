@@ -59,11 +59,12 @@
         <input type="text" placeholder="enter a message to encode" id="message">
         <button onclick="encode()">Submit</button>
         <h3 id="encodedMsg">Your encoded message: </h3>
+        <button id="copy">COPY</button>
         <button><a href="decode.html" style="color:white ;text-decoration: none;">Decode</a></button>
 
     </div>
     <script>
-        
+        const copy=document.getElementById('copy');
 
         function encode(){
             const message=document.getElementById('message').value;
@@ -86,6 +87,9 @@
             }
 
             encodedisplay.textContent=`Your encoded message: ${result}`;
+            copy.addEventListener('click',()=>{
+                navigator.clipboard.writeText(result);
+                message.value='';
         }
     </script>
 </body>
